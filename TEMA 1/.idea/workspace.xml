@@ -28,19 +28,34 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.EjecutarProceso.executor": "Run",
+    "Application.EjemploComunicacion.executor": "Run",
+    "Application.Ejercicio1.executor": "Run",
+    "Application.Ejercicio2.executor": "Run",
+    "Application.Ejercicio3Concurrente.executor": "Run",
+    "Application.Ejercicio3Secuencial.executor": "Run",
     "Application.Main.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/oscarfh06/Documentos/OSCAR/2DAM/PROGRAMACION DE SERVICIOS Y PROCESOS/TEMA 1/Tarea 1/src/ejercicio3/concurrente",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.433832",
-    "settings.editor.selected.configurable": "preferences.keymap"
+    "settings.editor.selected.configurable": "preferences.JavaFX"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="productor_consumidor" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Tarea 1/src/ejercicio3/concurrente" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/EJEMPLOS CLASE/src" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ejercicio2" />
     </key>
   </component>
   <component name="RunManager">
