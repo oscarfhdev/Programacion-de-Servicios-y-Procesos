@@ -30,12 +30,14 @@
     "Application.EjecutarProceso.executor": "Run",
     "Application.EjemploComunicacion.executor": "Run",
     "Application.Ejercicio1.executor": "Run",
+    "Application.Ejercicio1Secuencial.executor": "Run",
     "Application.Ejercicio2.executor": "Run",
     "Application.Ejercicio3Concurrente.executor": "Run",
     "Application.Ejercicio3Secuencial.executor": "Run",
     "Application.Main.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/oscarfh06/Documentos/OSCAR/2DAM/PROGRAMACION DE SERVICIOS Y PROCESOS/TEMA 1/Tarea 1/src/ejercicio3/concurrente",
     "project.structure.last.edited": "Project",
@@ -74,5 +76,15 @@
       <updated>1758183735943</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NumberFormatException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
