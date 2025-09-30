@@ -1,21 +1,21 @@
-package Ejercicio1.secuencial;
+package ejercicio1.secuencial;
 
 import java.io.*;
 
 public class Ejercicio1Secuencial {
     public static void main(String[] args) {
-        String fichero = "USO AVANZADO DE HILOS/src/Ejercicio1/LoremIpsum.txt";
+        String fichero = "USO AVANZADO DE HILOS/src/ejercicio1/LoremIpsum.txt";
 
         // Así podemos acceder más facil
         String[] vocales = {"a", "e", "i", "o", "u"};
 
         // Creamos arrays para recorrerlos y no tener que crear tantos buffers
         String[] ficherosVocales = {
-        "USO AVANZADO DE HILOS/src/Ejercicio1/secuencial/FicheroVocalA.txt",
-        "USO AVANZADO DE HILOS/src/Ejercicio1/secuencial/FicheroVocalE.txt",
-        "USO AVANZADO DE HILOS/src/Ejercicio1/secuencial/FicheroVocalI.txt",
-        "USO AVANZADO DE HILOS/src/Ejercicio1/secuencial/FicheroVocalO.txt",
-        "USO AVANZADO DE HILOS/src/Ejercicio1/secuencial/FicheroVocalU.txt"
+        "USO AVANZADO DE HILOS/src/ejercicio1/secuencial/FicheroVocalA.txt",
+        "USO AVANZADO DE HILOS/src/ejercicio1/secuencial/FicheroVocalE.txt",
+        "USO AVANZADO DE HILOS/src/ejercicio1/secuencial/FicheroVocalI.txt",
+        "USO AVANZADO DE HILOS/src/ejercicio1/secuencial/FicheroVocalO.txt",
+        "USO AVANZADO DE HILOS/src/ejercicio1/secuencial/FicheroVocalU.txt"
         };
 
         // Nos ahorramos variables el orden es a, e, i, o, u

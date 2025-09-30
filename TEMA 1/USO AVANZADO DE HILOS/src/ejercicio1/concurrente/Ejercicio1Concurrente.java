@@ -1,4 +1,4 @@
-package Ejercicio1.concurrente;
+package ejercicio1.concurrente;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -8,28 +8,28 @@ import java.util.ArrayList;
 public class Ejercicio1Concurrente {
     public static void main(String[] args) {
 
-        String ficheroALeer = "USO AVANZADO DE HILOS/src/Ejercicio1/LoremIpsum.txt";
+        String ficheroALeer = "USO AVANZADO DE HILOS/src/ejercicio1/LoremIpsum.txt";
 
         // Así podemos acceder más facil
         String[] vocales = {"a", "e", "i", "o", "u"};
 
         // Guardamos en un array los ficheros que va a escribir cada hilo
         String[] ficherosVocalesEscribir = {
-                "USO AVANZADO DE HILOS/src/Ejercicio1/concurrente/FicheroVocalA.txt",
-                "USO AVANZADO DE HILOS/src/Ejercicio1/concurrente/FicheroVocalE.txt",
-                "USO AVANZADO DE HILOS/src/Ejercicio1/concurrente/FicheroVocalI.txt",
-                "USO AVANZADO DE HILOS/src/Ejercicio1/concurrente/FicheroVocalO.txt",
-                "USO AVANZADO DE HILOS/src/Ejercicio1/concurrente/FicheroVocalU.txt"
+                "USO AVANZADO DE HILOS/src/ejercicio1/concurrente/FicheroVocalA.txt",
+                "USO AVANZADO DE HILOS/src/ejercicio1/concurrente/FicheroVocalE.txt",
+                "USO AVANZADO DE HILOS/src/ejercicio1/concurrente/FicheroVocalI.txt",
+                "USO AVANZADO DE HILOS/src/ejercicio1/concurrente/FicheroVocalO.txt",
+                "USO AVANZADO DE HILOS/src/ejercicio1/concurrente/FicheroVocalU.txt"
         };
         // Creamos un array para guardar los hilos y trabajar maś sencillo
         ArrayList<Thread> hilosVocales = new ArrayList<>(5);
 
         // Creamos los hilos
-        Thread hiloVocalA = new HiloVocalA(ficheroALeer, ficherosVocalesEscribir[0]);
-        Thread hiloVocalE = new HiloVocalE(ficheroALeer, ficherosVocalesEscribir[1]);
-        Thread hiloVocalI = new HiloVocalI(ficheroALeer, ficherosVocalesEscribir[2]);
-        Thread hiloVocalO = new HiloVocalO(ficheroALeer, ficherosVocalesEscribir[3]);
-        Thread hiloVocalU = new HiloVocalU(ficheroALeer, ficherosVocalesEscribir[4]);
+        Thread hiloVocalA = new HiloVocal(ficheroALeer, ficherosVocalesEscribir[0], 'a', 'á');
+        Thread hiloVocalE = new HiloVocal(ficheroALeer, ficherosVocalesEscribir[1], 'e', 'é');
+        Thread hiloVocalI = new HiloVocal(ficheroALeer, ficherosVocalesEscribir[2], 'i', 'í');
+        Thread hiloVocalO = new HiloVocal(ficheroALeer, ficherosVocalesEscribir[3], 'o', 'ó');
+        Thread hiloVocalU = new HiloVocal(ficheroALeer, ficherosVocalesEscribir[4], 'u', 'ú');
 
         // Metemos los hilos en el array
         hilosVocales.add(hiloVocalA);
