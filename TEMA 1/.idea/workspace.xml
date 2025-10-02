@@ -33,6 +33,7 @@
     "Application.Ejercicio1Concurrente.executor": "Run",
     "Application.Ejercicio1Secuencial.executor": "Run",
     "Application.Ejercicio2.executor": "Run",
+    "Application.Ejercicio2Concurrente.executor": "Run",
     "Application.Ejercicio3Concurrente.executor": "Run",
     "Application.Ejercicio3Secuencial.executor": "Run",
     "Application.Main.executor": "Run",
