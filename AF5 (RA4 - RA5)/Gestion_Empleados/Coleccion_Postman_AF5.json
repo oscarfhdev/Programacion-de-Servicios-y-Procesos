@@ -1,0 +1,437 @@
+{
+	"info": {
+		"_postman_id": "a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d",
+		"name": "AF5 - PSP - Gestión de Empleados",
+		"description": "Colección de pruebas Postman para la API REST de Gestión de Empleados (RA4 y RA5). Incluye pruebas de listar, crear, modificar y eliminar empleados, validación de datos y roles de seguridad (ADMIN y USER).",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. GET - Listar empleados (USER)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "user123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/empleados",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"empleados"
+					]
+				},
+				"description": "Prueba de listar todos los empleados autenticados como USER. Debería devolver 200 OK."
+			},
+			"response": []
+		},
+		{
+			"name": "2. POST - Crear empleado (ADMIN)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Juan García\",\n    \"puesto\": \"Desarrollador Senior\",\n    \"salario\": 35000.0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/empleados",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"empleados"
+					]
+				},
+				"description": "Prueba de creación de un empleado con rol ADMIN. Debería devolver 201 Created."
+			},
+			"response": []
+		},
+		{
+			"name": "3. POST - Crear segundo empleado (ADMIN)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"María López\",\n    \"puesto\": \"Analista de Datos\",\n    \"salario\": 30000.0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/empleados",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"empleados"
+					]
+				},
+				"description": "Crea otro empleado para tener datos. 201 Created."
+			},
+			"response": []
+		},
+		{
+			"name": "4. GET - Obtener empleado por ID (USER)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "user123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/empleados/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"empleados",
+						"1"
+					]
+				},
+				"description": "Localiza al empleado con ID 1. Debería devolver 200 OK."
+			},
+			"response": []
+		},
+		{
+			"name": "5. PUT - Actualizar empleado (ADMIN)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Juan García Actualizado\",\n    \"puesto\": \"Director de Tecnología\",\n    \"salario\": 50000.0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/empleados/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"empleados",
+						"1"
+					]
+				},
+				"description": "Modifica los datos del empleado 1. Debería devolver 200 OK."
+			},
+			"response": []
+		},
+		{
+			"name": "6. DELETE - Eliminar empleado (ADMIN)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/empleados/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"empleados",
+						"2"
+					]
+				},
+				"description": "Borra el empleado 2. Debería devolver 204 No Content."
+			},
+			"response": []
+		},
+		{
+			"name": "7. POST - Crear empleado (USER -> DENEGADO)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "user123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Intento Fallido\",\n    \"puesto\": \"Test\",\n    \"salario\": 20000.0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/empleados",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"empleados"
+					]
+				},
+				"description": "Un USER intenta usar un endpoint privado para subir datos. Debería dar error de seguridad 403 Forbidden."
+			},
+			"response": []
+		},
+		{
+			"name": "8. DELETE - Eliminar empleado (USER -> DENEGADO)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "user123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/empleados/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"empleados",
+						"1"
+					]
+				},
+				"description": "Un USER intenta borrar un empleado de la BBDD. Debería dar 403 Forbidden."
+			},
+			"response": []
+		},
+		{
+			"name": "9. POST - Validación fallida (ADMIN)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"\",\n    \"puesto\": \"\",\n    \"salario\": -500\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/empleados",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"empleados"
+					]
+				},
+				"description": "Intento de colar un empleado con campos vacíos y salario negativo. Debería dar 400 Bad Request y mostrar el JSON de los errores automáticos."
+			},
+			"response": []
+		},
+		{
+			"name": "10. GET - Sin autenticación (DENEGADO)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/empleados",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"empleados"
+					]
+				},
+				"description": "Si entras a esta URL sin Basic Auth (es decir, como un anónimo cualquiera), debería denegarlo de inmediato con un 401 Unauthorized."
+			},
+			"response": []
+		}
+	]
+}

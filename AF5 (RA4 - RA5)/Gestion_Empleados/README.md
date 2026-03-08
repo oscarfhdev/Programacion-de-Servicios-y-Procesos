@@ -230,7 +230,11 @@ Además, se deshabilita **CSRF** porque la API REST es stateless (sin estado) y 
 
 ## 4. Guía de Pruebas con Postman
 
-### 🔧 Configurar la autenticación en Postman
+> 🚀 **¡Colección Lista para Importar!**
+> Para facilitar la corrección, se incluye en la raíz del proyecto el archivo `Coleccion_Postman_AF5.json`.
+> Solo tienes que abrir Postman, darle a **"Import"** y cargar este archivo. Te aparecerán automáticamente las 10 pruebas ya configuradas con sus URL, parámetros, cuerpos JSON y los usuarios correctos (Basic Auth) en cada petición.
+
+### 🔧 Configurar la autenticación en Postman (Modo Manual)
 
 Para cada petición en Postman:
 
