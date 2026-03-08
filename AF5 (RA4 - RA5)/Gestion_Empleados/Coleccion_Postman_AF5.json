@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "1. GET - Listar empleados (USER)",
+			"name": "1. Listar empleados (USER)",
 			"request": {
 				"auth": {
 					"type": "basic",
@@ -43,7 +43,7 @@
 			"response": []
 		},
 		{
-			"name": "2. POST - Crear empleado (ADMIN)",
+			"name": "2. Crear empleado (ADMIN)",
 			"request": {
 				"auth": {
 					"type": "basic",
@@ -94,7 +94,7 @@
 			"response": []
 		},
 		{
-			"name": "3. POST - Crear segundo empleado (ADMIN)",
+			"name": "3. Crear segundo empleado (ADMIN)",
 			"request": {
 				"auth": {
 					"type": "basic",
@@ -145,7 +145,7 @@
 			"response": []
 		},
 		{
-			"name": "4. GET - Obtener empleado por ID (USER)",
+			"name": "4. Obtener empleado por ID (USER)",
 			"request": {
 				"auth": {
 					"type": "basic",
@@ -182,7 +182,7 @@
 			"response": []
 		},
 		{
-			"name": "5. PUT - Actualizar empleado (ADMIN)",
+			"name": "5. Actualizar empleado (ADMIN)",
 			"request": {
 				"auth": {
 					"type": "basic",
@@ -234,7 +234,7 @@
 			"response": []
 		},
 		{
-			"name": "6. DELETE - Eliminar empleado (ADMIN)",
+			"name": "6. Eliminar empleado (ADMIN)",
 			"request": {
 				"auth": {
 					"type": "basic",
@@ -271,7 +271,7 @@
 			"response": []
 		},
 		{
-			"name": "7. POST - Crear empleado (USER -> DENEGADO)",
+			"name": "7. Crear empleado (USER -> DENEGADO)",
 			"request": {
 				"auth": {
 					"type": "basic",
@@ -322,7 +322,7 @@
 			"response": []
 		},
 		{
-			"name": "8. DELETE - Eliminar empleado (USER -> DENEGADO)",
+			"name": "8. Eliminar empleado (USER -> DENEGADO)",
 			"request": {
 				"auth": {
 					"type": "basic",
@@ -359,7 +359,7 @@
 			"response": []
 		},
 		{
-			"name": "9. POST - Validación fallida (ADMIN)",
+			"name": "9. Validación fallida (ADMIN)",
 			"request": {
 				"auth": {
 					"type": "basic",
@@ -410,7 +410,7 @@
 			"response": []
 		},
 		{
-			"name": "10. GET - Sin autenticación (DENEGADO)",
+			"name": "10. Sin autenticación (DENEGADO)",
 			"request": {
 				"auth": {
 					"type": "noauth"
