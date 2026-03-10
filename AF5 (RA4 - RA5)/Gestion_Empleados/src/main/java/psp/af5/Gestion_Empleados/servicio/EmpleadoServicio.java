@@ -8,9 +8,7 @@ import org.springframework.stereotype.Service;
 import psp.af5.Gestion_Empleados.modelo.Empleado;
 import psp.af5.Gestion_Empleados.repositorio.EmpleadoRepositorio;
 
-// Servicio que contiene la logica de negocio
-// Se situa entre el controlador y el repositorio
-// Asi separamos las responsabilidades de cada capa
+
 @Service
 public class EmpleadoServicio {
 

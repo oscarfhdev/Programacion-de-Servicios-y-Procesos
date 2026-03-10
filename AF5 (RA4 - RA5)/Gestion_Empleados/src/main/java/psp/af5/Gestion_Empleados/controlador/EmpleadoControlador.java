@@ -29,7 +29,7 @@ import psp.af5.Gestion_Empleados.servicio.EmpleadoServicio;
 @RequestMapping("/api/empleados")
 public class EmpleadoControlador {
 
-    // Inyectamos el servicio para llamar a la logica de negocio
+    // Inyectamos el servicio
     private final EmpleadoServicio empleadoServicio;
 
     public EmpleadoControlador(EmpleadoServicio empleadoServicio) {
@@ -90,8 +90,7 @@ public class EmpleadoControlador {
     }
 
     // Este metodo captura los errores de validacion
-    // Cuando @Valid detecta que algun campo no cumple las reglas (@NotBlank,
-    // @Positive, etc)
+    // Cuando @Valid detecta que algun campo no cumple las reglas (@NotBlank)
     // recogemos los errores y los devolvemos como un JSON con el campo y el mensaje
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
