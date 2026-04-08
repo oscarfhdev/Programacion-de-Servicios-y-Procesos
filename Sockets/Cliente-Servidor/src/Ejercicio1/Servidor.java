@@ -1,7 +1,6 @@
 package Ejercicio1;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
@@ -9,40 +8,84 @@ import java.net.Socket;
 
 public class Servidor {
     public static void main(String[] args) {
-        System.out.println("Esperando conexión...");
-
-        // Un solo try que gestiona todos los recursos en cascada
         try (ServerSocket server = new ServerSocket(1234);
-             Socket cliente = server.accept(); // Se detiene aquí hasta que alguien entra
-             BufferedReader in = new BufferedReader(new InputStreamReader(cliente.getInputStream()));
-             PrintWriter out = new PrintWriter(cliente.getOutputStream(), true)) {
+             Socket socket = server.accept();
+             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+             PrintWriter out = new PrintWriter(socket.getOutputStream(), true)) {
 
-            System.out.println("Cliente conectado!");
+            String op = in.readLine();
+            System.out.println(op);
 
-            String mensaje = in.readLine();
-
-            String cadena = null;
-            if (mensaje != null) {
-                switch (mensaje) {
-                    case "CIFRAR":
-                        break;
-                    case "DESCIFRAR":
-                        out.println("Pasame la cadena");
-                        cadena=in.readLine();
-                        break;
-                    default:
-                        out.println("La operación solicitada no existe");
-                }
-                out.println(cifrar_descifrar(mensaje, cadena));
+            if (op != null && !op.equals("") && !op.equals("Q")) {
+                out.println("y");
+            } else if (op.equals("Q")) {
+                socket.close();
             }
 
-        } catch (IOException e) {
-            System.err.println("Error en el servidor: " + e.getMessage());
+            String cadena = in.readLine();
+            switch (op) {
+                case "CIFRAR":
+                    cadena = cifrar(cadena);
+                    break;
+                case "DESCIFRAR":
+                    cadena = desCrifrar(cadena);
+                    break;
+                default:
+                    break;
+            }
+
+            if (cadena != null) {
+                out.println(cadena);
+            }
+
+        } catch (Exception e) {
+
         }
-        // Al llegar aquí, TODO (server, cliente, in, out) se ha cerrado automáticamente.
     }
 
-    static String cifrar_descifrar(String cadena, String operacion){
-        return "hola";
+    public static String cifrar(String cadena) {
+        String cadenaCifrada = "";
+        int rangoA_Z = ('z' - 'a') + 1;
+
+        for (char c : cadena.toCharArray()) {
+
+            if (c >= 'a' && c <= 'z') {
+
+                int pos = (((c - 'a') + 3) + rangoA_Z) % rangoA_Z;
+                cadenaCifrada += (char) ('a' + pos);
+
+            } else if (c >= 'A' && c <= 'Z') {
+
+                int pos = (((c - 'A') + 3) + rangoA_Z) % rangoA_Z;
+                cadenaCifrada += (char) ('A' + pos);
+
+            }
+
+        }
+
+        return cadenaCifrada;
+    }
+
+    public static String desCrifrar(String cadena) {
+        String cadenaDescifrada = "";
+        int rangoA_Z = ('z' - 'a') + 1;
+
+        for (char c : cadena.toCharArray()) {
+
+            if (c >= 'a' && c <= 'z') {
+
+                int pos = (((c - 'a') - 3) + rangoA_Z) % rangoA_Z;
+                cadenaDescifrada += (char) ('a' + pos);
+
+            } else if (c >= 'A' && c <= 'Z') {
+
+                int pos = (((c - 'A') - 3) + rangoA_Z) % rangoA_Z;
+                cadenaDescifrada += (char) ('A' + pos);
+
+            }
+
+        }
+
+        return cadenaDescifrada;
     }
 }
