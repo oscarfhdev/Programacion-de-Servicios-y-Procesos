@@ -1,0 +1,5 @@
+Realiza un programa en Java utilizando sockets que permita a un cliente conectarse a un servidor
+para cifrar o descifrar mensajes mediante un desplazamiento de letras (tipo César con
+desplazamiento 3).
+El cliente deberá indicar la operación, la clave y el texto, y el servidor devolverá el mensaje
+resultante.

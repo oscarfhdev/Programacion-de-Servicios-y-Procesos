@@ -2,53 +2,50 @@ package Ejercicio1;
 
 import java.io.*;
 import java.net.*;
+import java.util.Scanner;
 
 public class Cliente {
     public static void main(String[] args) {
-                System.out.println("Cliente conectado");
+        System.out.println("Cliente conectado");
 
         try (
-                Socket socket = new Socket("localhost", 1234);
+                Socket socket = new Socket("localhost", 1234); // Conexión
                 PrintWriter out = new PrintWriter(
-                socket.getOutputStream(), true);
-                BufferedReader in = new BufferedReader(
-                new InputStreamReader(socket.getInputStream()));
+                        socket.getOutputStream(), true); // Instancia para enviar
+                BufferedReader in = new BufferedReader( // Instancia para leer
+                        new InputStreamReader(socket.getInputStream()));
+                Scanner teclado = new Scanner(System.in); // Scanner para leer por teclado
+        ) {
 
-                BufferedReader teclado = new BufferedReader(
-                new InputStreamReader(System.in));
-            ) {
+            // Menú inicial
+            System.out.println("\n--- MENÚ ---");
+            System.out.println("Opciones: CIFRAR, DESCIFRAR, EXIT");
 
+            // Bucle para que no cierre
+            while (true) {
+                System.out.print("Escribe tu orden: ");
+                String orden = teclado.nextLine(); // Leemos la orden
+                out.println(orden); // Se la mandamos al servidor
 
-                                        
-        out.println(teclado.readLine());
-        String respuesta=in.readLine();
-        if (respuesta.equals("Pasame la cadena")){
-            out.println(teclado.readLine());
-            System.out.println("cifrado: "+in.readLine());
-        }else{
-            System.out.println(respuesta); 
+                // Si es EXIT, leemos el ADIOS y rompemos el bucle
+                if (orden.equals("EXIT")) {
+                    System.out.println(in.readLine());
+                    break;
+                }
+
+                // Lógica para pasar la cadena
+                String respuesta = in.readLine();
+                if (respuesta.equals("Pasame la cadena")){
+                    System.out.print("Ingresa la cadena: ");
+                    out.println(teclado.nextLine()); // Leemos cadena y la mandamos
+                    System.out.println("Resultado: " + in.readLine());
+                } else {
+                    System.out.println(respuesta);
+                }
+            }
+
+        } catch (IOException e){
+            System.err.println("Error en conexión");
         }
-
-        // mandarle a Descifrar ABC
-        out.println(teclado.readLine());
-        respuesta=in.readLine();
-        if (respuesta.equals("Pasame la cadena")){
-            out.println(teclado.readLine());
-            System.out.println("descifrado: "+in.readLine());
-        }else{
-            System.out.println(respuesta); 
-        }
-
-        out.println(teclado.readLine());
-
-        System.out.println(in.readLine());
-
-
-        
-    }catch (IOException e){
-        System.err.println("Error en conexión");
-    }catch (ArithmeticException a){
-            System.err.println("División sobre 0"+a.getMessage());
     }
-}
 }
