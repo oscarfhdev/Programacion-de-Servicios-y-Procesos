@@ -1,91 +1,82 @@
 package Ejercicio1;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.net.ServerSocket;
-import java.net.Socket;
+import java.io.*;
+import java.net.*;
 
 public class Servidor {
     public static void main(String[] args) {
-        try (ServerSocket server = new ServerSocket(1234);
-             Socket socket = server.accept();
-             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-             PrintWriter out = new PrintWriter(socket.getOutputStream(), true)) {
+        System.out.println("Servidor arrancado y esperando...");
+        try (
+            ServerSocket server = new ServerSocket(1234);
+            Socket cliente = server.accept();
+            BufferedReader in = new BufferedReader(
+                new InputStreamReader(cliente.getInputStream()));
+            PrintWriter out = new PrintWriter(
+                cliente.getOutputStream(), true);
+        ){
+            String operacion;
+            while((operacion=in.readLine())!=null && !operacion.equals("EXIT")){
+                String cadena=null;
 
-            String op = in.readLine();
-            System.out.println(op);
+                switch (operacion){
+                    case "CIFRAR":
+                    case "DESCIFRAR":
+                        out.println("Pasame la cadena");
+                        cadena=in.readLine();
+                    break;
+                    default:
+                        out.println("Operación no permitida");
+                }
 
-            if (op != null && !op.equals("") && !op.equals("Q")) {
-                out.println("y");
-            } else if (op.equals("Q")) {
-                socket.close();
+                out.println(cifrar_descifrar(cadena,operacion,3));
             }
 
-            String cadena = in.readLine();
-            switch (op) {
-                case "CIFRAR":
-                    cadena = cifrar(cadena);
-                    break;
-                case "DESCIFRAR":
-                    cadena = desCrifrar(cadena);
-                    break;
-                default:
-                    break;
-            }
+            out.println("ADIOS");
+            
 
-            if (cadena != null) {
-                out.println(cadena);
-            }
-
-        } catch (Exception e) {
-
+        }catch (IOException e){
+            System.err.println("Error de conexión");
+        }catch (ArithmeticException a){
+            System.err.println("División sobre 0"+a.getMessage());
         }
+        
+    
     }
 
-    public static String cifrar(String cadena) {
-        String cadenaCifrada = "";
-        int rangoA_Z = ('z' - 'a') + 1;
+    public static String cifrar_descifrar(String cadena,String operacion,int desplazamiento){
+        int rango=('z'-'a')+1;
 
-        for (char c : cadena.toCharArray()) {
+        String resultado="";
+        char c;
+        switch (operacion){
+            case "CIFRAR":
+                
+                for (int i=0;i<cadena.length();i++){
+                    c=cadena.charAt(i);
 
-            if (c >= 'a' && c <= 'z') {
+                    if (c>='a' && c<='z'){
+                        resultado+= (char) (((c-'a')+desplazamiento)%rango + 'a');
+                    }else if (c>='A' && c<='Z'){
+                        resultado+= (char) (((c-'A')+desplazamiento)%rango + 'A');
+                    }else{
+                        resultado+=c;
+                    }
+                }
+            break;
+            case "DESCIFRAR":
+                for (int i=0;i<cadena.length();i++){
+                    c=cadena.charAt(i);
 
-                int pos = (((c - 'a') + 3) + rangoA_Z) % rangoA_Z;
-                cadenaCifrada += (char) ('a' + pos);
-
-            } else if (c >= 'A' && c <= 'Z') {
-
-                int pos = (((c - 'A') + 3) + rangoA_Z) % rangoA_Z;
-                cadenaCifrada += (char) ('A' + pos);
-
-            }
-
+                    if (c>='a' && c<='z'){
+                        resultado+= (char) (((c-'a')-desplazamiento+rango)%rango + 'a');
+                    }else if (c>='A' && c<='Z'){
+                        resultado+= (char) (((c-'A')-desplazamiento+rango)%rango + 'A');
+                    }else{
+                        resultado+=c;
+                    }
+                }
+            break;
         }
-
-        return cadenaCifrada;
-    }
-
-    public static String desCrifrar(String cadena) {
-        String cadenaDescifrada = "";
-        int rangoA_Z = ('z' - 'a') + 1;
-
-        for (char c : cadena.toCharArray()) {
-
-            if (c >= 'a' && c <= 'z') {
-
-                int pos = (((c - 'a') - 3) + rangoA_Z) % rangoA_Z;
-                cadenaDescifrada += (char) ('a' + pos);
-
-            } else if (c >= 'A' && c <= 'Z') {
-
-                int pos = (((c - 'A') - 3) + rangoA_Z) % rangoA_Z;
-                cadenaDescifrada += (char) ('A' + pos);
-
-            }
-
-        }
-
-        return cadenaDescifrada;
+        return resultado;
     }
 }
