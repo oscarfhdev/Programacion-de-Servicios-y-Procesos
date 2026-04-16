@@ -22,31 +22,58 @@ public class GameManager {
 
     public void iniciarPartida() throws InterruptedException {
         try {
-
+            System.out.println("Partida iniciada");
             for (Pregunta p : preguntas) {
-                enviarTodos(p.getEnunciado());
+                enviarTodos(extraerPregunta(p));
                 rondaAbierta = true;
                 Thread.sleep(15000);
                 rondaAbierta = false;
                 corregirRespuestas(p.getRespuestaCorrecta());
-
+                limpiarRespuesta();
             }
+            // Se finaliza la partida
+            mostrarRanking();
         }
         catch (Exception e){
-            System.out.println("Error al inicar la partida");
+            System.out.println("Error al inicar la partida" + e.getMessage());
         }
     }
 
-    public void enviarTodos(String msg){
+    private void mostrarRanking() {
+        String total = "";
+        for (ClienteHandler cl : clientes){
+            total += cl.mostrarNota();
+        }
+        System.out.println(total);
     }
 
-    public void lanzarPregunta(String pregunta){
-
+    public void limpiarRespuesta(){
+        for (ClienteHandler cl : clientes){
+            cl.limpiarRespuesta();
+        }
     }
+
 
     public void corregirRespuestas(String solucion){
         // actualiza el campo de cliente handler
         // para los que tengn la respuesta correcta
+        for (ClienteHandler cl : clientes){
+            cl.corregirRespuesta(solucion);
+        }
     }
+
+    public String extraerPregunta(Pregunta p){
+        return p.getEnunciado()+ " | A" + p.getRespuestaA()
+        + " | B:" + p.getRespuestaB()
+        + " | C:" + p.getRespuestaC()
+        + " | D:" + p.getRespuestaD();
+    }
+
+    public void enviarTodos(String msg){
+        for (ClienteHandler clH : clientes){
+            clH.enviarMensaje(msg);
+        }
+    }
+
 }
 

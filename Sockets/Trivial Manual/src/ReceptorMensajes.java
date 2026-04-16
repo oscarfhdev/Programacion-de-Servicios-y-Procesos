@@ -10,12 +10,15 @@ public class ReceptorMensajes extends Thread{
 
     @Override
     public void run() {
-        while (true){
             try {
-                System.out.println(in.readLine());
+                String message;
+                while ((message=in.readLine()) != null) {
+                    System.out.println(message);
+
+                }
+                System.out.println("Sevidor apagado...");
             } catch (IOException e) {
                 throw new RuntimeException("Error" + e.getMessage());
             }
-        }
     }
 }
