@@ -8,8 +8,16 @@ public class GameManager {
 
     public GameManager(ArrayList<ClienteHandler> clientes) {
         this.clientes = clientes;
-        this.preguntas.add((new Pregunta("Enunciado 1", "1", "2", "3", "4", "b")));
-        this.preguntas.add((new Pregunta("Enunciado 2", "1", "2", "3", "4", "c")));
+        this.preguntas.add(new Pregunta("¿Qué palabra clave se usa en Java para heredar de una clase?", "implements", "extends", "inherits", "super", "b"));
+        this.preguntas.add(new Pregunta("¿Qué comando SQL se usa para obtener datos de una tabla?", "INSERT", "UPDATE", "SELECT", "DELETE", "c"));
+        this.preguntas.add(new Pregunta("¿Qué protocolo de la capa de transporte es orientado a conexión?", "UDP", "ICMP", "TCP", "ARP", "c"));
+        this.preguntas.add(new Pregunta("¿Qué patrón de diseño asegura que solo exista una instancia de una clase?", "Factory", "Observer", "Adapter", "Singleton", "d"));
+        this.preguntas.add(new Pregunta("¿Qué tipo de dato en Java almacena texto?", "int", "boolean", "String", "double", "c"));
+        this.preguntas.add(new Pregunta("¿Qué clase de Java se utiliza para leer un fichero de texto línea a línea?", "FileWriter", "BufferedReader", "PrintWriter", "Scanner", "b"));
+        this.preguntas.add(new Pregunta("¿Cuál es el puerto por defecto de HTTP?", "443", "21", "80", "8080", "c"));
+        this.preguntas.add(new Pregunta("¿Qué significa la 'S' en SOLID?", "Single Responsibility", "Simple Design", "Secure Code", "Static Typing", "a"));
+        this.preguntas.add(new Pregunta("¿Qué componente de Android se usa para ejecutar tareas en segundo plano?", "Activity", "Fragment", "Service", "BroadcastReceiver", "c"));
+        this.preguntas.add(new Pregunta("¿Qué tipo de JOIN devuelve solo las filas que coinciden en ambas tablas?", "LEFT JOIN", "RIGHT JOIN", "INNER JOIN", "FULL JOIN", "c"));
     }
 
     public static boolean isRondaAbierta() {
@@ -63,10 +71,10 @@ public class GameManager {
     }
 
     public String extraerPregunta(Pregunta p){
-        return p.getEnunciado()+ " | A" + p.getRespuestaA()
-        + " | B:" + p.getRespuestaB()
-        + " | C:" + p.getRespuestaC()
-        + " | D:" + p.getRespuestaD();
+        return p.getEnunciado() + " | A: " + p.getRespuestaA()
+        + " | B: " + p.getRespuestaB()
+        + " | C: " + p.getRespuestaC()
+        + " | D: " + p.getRespuestaD();
     }
 
     public void enviarTodos(String msg){

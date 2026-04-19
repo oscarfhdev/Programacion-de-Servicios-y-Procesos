@@ -11,7 +11,7 @@ public class Servidor {
             ServerSocket server = new ServerSocket(5000);
             System.out.println("Servidor concurrente escuchando en el puerto 5000...");
 
-            while (clientes.size() < 1) {
+            while (clientes.size() < 2) {
                 Socket cliente = server.accept();
                 System.out.println("¡Nuevo cliente conectado desde " + cliente.getInetAddress() + "!");
                 ClienteHandler cl = new ClienteHandler(cliente);
