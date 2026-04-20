@@ -4,28 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8d996c8-842c-4da5-87df-58d745af1032" name="Changes" comment="" />
+    <list default="true" id="7a4cff5f-fb6f-4c3f-a8e1-8e26ca366aa8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 8
-}</component>
-  <component name="ProjectId" id="3CZYcxuvBoe3N8xOIqaSAbzE670" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3,
+  "fromUser": false
+}]]></component>
+  <component name="ProjectId" id="3Cc2WKqQOtKPxKkNmlYmlDgKUPs" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Cliente.executor": "Run",
+    "Application.Servidor.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/oscarfh06/Documentos/OSCAR/2DAM/PROGRAMACION DE SERVICIOS Y PROCESOS/Sockets/SimulacroExamen/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -34,13 +37,32 @@
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Cliente" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Cliente" />
+      <module name="SimulacroExamen" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Cliente" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c8d996c8-842c-4da5-87df-58d745af1032" name="Changes" comment="" />
-      <created>1776594642710</created>
+      <changelist id="7a4cff5f-fb6f-4c3f-a8e1-8e26ca366aa8" name="Changes" comment="" />
+      <created>1776670567995</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1776594642710</updated>
+      <updated>1776670567995</updated>
     </task>
     <servers />
   </component>

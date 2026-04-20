@@ -11,7 +11,7 @@ public class Cliente {
     public static void main(String[] args) {
 
         try (
-                Socket socket = new Socket("192.168.14.16", 1234); // Conexión
+                Socket socket = new Socket("192.168.15.127", 1234); // Conexión
                 PrintWriter out = new PrintWriter(
                         socket.getOutputStream(), true); // Instancia para enviar
                 BufferedReader in = new BufferedReader( // Instancia para leer

@@ -19,7 +19,6 @@ public class ClienteHandler extends Thread {
          respuestaActual = null;
          this.entrada= new BufferedReader(new InputStreamReader(cliente.getInputStream()));
          this.salida = new PrintWriter(cliente.getOutputStream(), true);
-         salida.println("prueba");
     }
 
     @Override

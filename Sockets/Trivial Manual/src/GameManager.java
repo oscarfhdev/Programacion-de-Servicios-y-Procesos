@@ -13,11 +13,6 @@ public class GameManager {
         this.preguntas.add(new Pregunta("¿Qué protocolo de la capa de transporte es orientado a conexión?", "UDP", "ICMP", "TCP", "ARP", "c"));
         this.preguntas.add(new Pregunta("¿Qué patrón de diseño asegura que solo exista una instancia de una clase?", "Factory", "Observer", "Adapter", "Singleton", "d"));
         this.preguntas.add(new Pregunta("¿Qué tipo de dato en Java almacena texto?", "int", "boolean", "String", "double", "c"));
-        this.preguntas.add(new Pregunta("¿Qué clase de Java se utiliza para leer un fichero de texto línea a línea?", "FileWriter", "BufferedReader", "PrintWriter", "Scanner", "b"));
-        this.preguntas.add(new Pregunta("¿Cuál es el puerto por defecto de HTTP?", "443", "21", "80", "8080", "c"));
-        this.preguntas.add(new Pregunta("¿Qué significa la 'S' en SOLID?", "Single Responsibility", "Simple Design", "Secure Code", "Static Typing", "a"));
-        this.preguntas.add(new Pregunta("¿Qué componente de Android se usa para ejecutar tareas en segundo plano?", "Activity", "Fragment", "Service", "BroadcastReceiver", "c"));
-        this.preguntas.add(new Pregunta("¿Qué tipo de JOIN devuelve solo las filas que coinciden en ambas tablas?", "LEFT JOIN", "RIGHT JOIN", "INNER JOIN", "FULL JOIN", "c"));
     }
 
     public static boolean isRondaAbierta() {
